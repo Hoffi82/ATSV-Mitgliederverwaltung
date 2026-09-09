@@ -12,7 +12,6 @@
     .member-table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,.05); }
     .member-table th,.member-table td { text-align:left; padding:15px; border-bottom:1px solid #eee; font-size:14px; }
     .member-table th { background:#181818; color:#fff; }
-    .status { display:inline-block; padding:5px 9px; border-radius:20px; background:#e9f7ed; color:#23733b; font-size:12px; font-weight:700; }
     .empty { text-align:center; padding:50px 20px; color:#777; }
     .preview-link { display:inline-block; margin-top:18px; padding:11px 16px; border-radius:8px; background:#b00020; color:#fff; text-decoration:none; font-weight:700; }
     @media(max-width:700px){ .member-table{font-size:12px}.member-table th:nth-child(3),.member-table td:nth-child(3),.member-table th:nth-child(5),.member-table td:nth-child(5){display:none} }
@@ -23,7 +22,7 @@
 <div class="layout">
 <aside class="sidebar"><nav><a href="index.html">Dashboard</a><a class="active" href="mitglieder.html">Mitglieder</a><a href="aufnahmeantraege.html">Aufnahmeanträge</a><a href="#">Beiträge</a><a href="#">Dokumente</a><a href="#">Verwaltung</a></nav></aside>
 <main class="content">
-  <section class="page-heading"><div><p class="eyebrow">MITGLIEDER</p><h1>Mitgliederverwaltung</h1><p class="subtitle">Mitglieder suchen, ansehen und später bearbeiten.</p></div><button class="primary-button" onclick="location.href='aufnahmeantraege.html'">+ Neues Mitglied</button></section>
+  <section class="page-heading"><div><p class="eyebrow">MITGLIEDER</p><h1>Mitgliederverwaltung</h1><p class="subtitle">Mitglieder suchen, ansehen und später bearbeiten.</p></div><button class="primary-button" onclick="location.href='neues-mitglied.html'">+ Neues Mitglied</button></section>
   <div class="member-toolbar"><input class="search" id="search" type="search" placeholder="Nach Name, Mitgliedsnummer oder E-Mail suchen..."><select class="filter" id="status"><option value="alle">Alle Status</option><option value="aktiv">Aktiv</option><option value="inaktiv">Inaktiv</option></select></div>
   <div style="overflow-x:auto"><table class="member-table"><thead><tr><th>Mitgliedsnummer</th><th>Name</th><th>Geburtsdatum</th><th>Abteilung</th><th>Eintritt</th><th>Status</th></tr></thead><tbody id="members"><tr><td colspan="6" class="empty">Noch keine Mitglieder vorhanden.<br>Neue Mitglieder werden später aus freigegebenen Aufnahmeanträgen übernommen.<br><a class="preview-link" href="mitglied.html">Mitgliedsakte als Vorschau öffnen</a></td></tr></tbody></table></div>
 </main></div>

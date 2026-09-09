@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATSV – Aufnahmeantrag ausländische Kinder</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-page{max-width:900px;margin:0 auto}.form-card{background:#fff;border:1px solid #e7e7e7;border-radius:10px;padding:28px;box-shadow:0 3px 12px rgba(0,0,0,.05)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:14px;font-weight:700}input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:7px;font:inherit;background:#fff}textarea{min-height:100px;resize:vertical}.section-title{margin:26px 0 16px;padding-bottom:8px;border-bottom:2px solid #c40022;font-size:18px}.special-note{background:#fff5f6;border-left:4px solid #c40022;padding:13px 15px;margin:18px 0;color:#555;font-size:14px;line-height:1.5}.actions{margin-top:26px;display:flex;justify-content:space-between;gap:12px}.secondary-button{border:1px solid #ccc;border-radius:8px;background:#fff;padding:13px 18px;cursor:pointer}@media(max-width:700px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.actions{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo-placeholder">ATSV</div><div><div class="club-name">ATSV Forchheim e.V.</div><div class="app-name">Aufnahmeantrag für ausländische Kinder</div></div></div></header>
+<main class="content form-page">
+  <p class="eyebrow">ONLINE-AUFNAHME</p><h1>Aufnahmeantrag für ausländische Kinder</h1><p class="subtitle">Sonderformular für Kinder mit ausländischer Staatsangehörigkeit.</p>
+  <div class="special-note"><strong>Wichtig:</strong> Welche zusätzlichen Angaben und Nachweise tatsächlich benötigt werden, legen wir gemeinsam nach den Vorgaben des Vereins fest. Diese Vorlage ist noch nicht produktiv.</div>
+  <form class="form-card" onsubmit="event.preventDefault(); alert('Der Antrag ist noch nicht mit der Datenbank verbunden.');">
+    <h2 class="section-title">Daten des Kindes</h2>
+    <div class="form-grid">
+      <div class="field"><label for="vorname">Vorname *</label><input id="vorname" required></div>
+      <div class="field"><label for="nachname">Nachname *</label><input id="nachname" required></div>
+      <div class="field"><label for="geburt">Geburtsdatum *</label><input id="geburt" type="date" required></div>
+      <div class="field"><label for="staatsangehoerigkeit">Staatsangehörigkeit *</label><input id="staatsangehoerigkeit" required></div>
+    </div>
+    <h2 class="section-title">Eltern / Erziehungsberechtigte</h2>
+    <div class="form-grid">
+      <div class="field"><label for="erziehungsberechtigt">Name des Erziehungsberechtigten *</label><input id="erziehungsberechtigt" required></div>
+      <div class="field"><label for="telefon">Telefon *</label><input id="telefon" type="tel" required></div>
+      <div class="field"><label for="email">E-Mail</label><input id="email" type="email"></div>
+      <div class="field"><label for="sprache">Bevorzugte Sprache</label><input id="sprache"></div>
+    </div>
+    <h2 class="section-title">Anschrift und Vereinsdaten</h2>
+    <div class="form-grid">
+      <div class="field"><label for="strasse">Straße und Hausnummer *</label><input id="strasse" required></div>
+      <div class="field"><label for="ort">PLZ und Ort *</label><input id="ort" required></div>
+      <div class="field"><label for="abteilung">Abteilung / Mannschaft</label><input id="abteilung"></div>
+      <div class="field"><label for="eintritt">Gewünschter Eintritt</label><input id="eintritt" type="date"></div>
+      <div class="field full"><label for="nachweise">Zusätzliche Hinweise / Nachweise</label><textarea id="nachweise"></textarea></div>
+    </div>
+    <div class="actions"><button type="button" class="secondary-button" onclick="history.back()">Zurück</button><button class="primary-button" type="submit">Antrag absenden</button></div>
+  </form>
+</main>
+</body>
+</html>

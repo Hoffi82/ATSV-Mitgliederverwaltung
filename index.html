@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATSV – Mitgliederverwaltung</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-placeholder">ATSV</div>
+      <div>
+        <div class="club-name">ATSV Forchheim e.V.</div>
+        <div class="app-name">Mitgliederverwaltung</div>
+      </div>
+    </div>
+    <div class="user-area">Verwaltung</div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <a class="active" href="#dashboard">Dashboard</a>
+        <a href="#mitglieder">Mitglieder</a>
+        <a href="#antraege">Aufnahmeanträge</a>
+        <a href="#beitraege">Beiträge</a>
+        <a href="#dokumente">Dokumente</a>
+        <a href="#verwaltung">Verwaltung</a>
+      </nav>
+    </aside>
+
+    <main class="content" id="dashboard">
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">ATSV FORCHHEIM E.V.</p>
+          <h1>Willkommen in der Mitgliederverwaltung</h1>
+          <p class="subtitle">Alle wichtigen Vereinsdaten später übersichtlich an einem Ort.</p>
+        </div>
+        <button class="primary-button" onclick="showMessage()">+ Neues Mitglied</button>
+      </section>
+
+      <section class="cards">
+        <article class="card">
+          <span class="card-label">Mitglieder</span>
+          <strong>0</strong>
+          <span class="card-note">Noch keine Daten erfasst</span>
+        </article>
+        <article class="card">
+          <span class="card-label">Aufnahmeanträge</span>
+          <strong>0</strong>
+          <span class="card-note">Zur Prüfung</span>
+        </article>
+        <article class="card">
+          <span class="card-label">Beiträge</span>
+          <strong>0</strong>
+          <span class="card-note">Wird später angebunden</span>
+        </article>
+        <article class="card">
+          <span class="card-label">Dokumente</span>
+          <strong>0</strong>
+          <span class="card-note">Noch keine Dokumente</span>
+        </article>
+      </section>
+
+      <section class="welcome-panel">
+        <div>
+          <span class="panel-kicker">PROJEKTSTART</span>
+          <h2>Die Grundlage steht.</h2>
+          <p>Als Nächstes bauen wir die Mitgliederverwaltung Schritt für Schritt aus – zuerst die Oberfläche, danach sichere Anmeldung und Datenbank.</p>
+        </div>
+        <div class="checklist">
+          <div>✓ ATSV-Design</div>
+          <div>✓ Dashboard</div>
+          <div>○ Mitgliederverwaltung</div>
+          <div>○ Online-Aufnahmeanträge</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

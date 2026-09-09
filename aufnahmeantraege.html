@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATSV – Aufnahmeanträge</title><link rel="stylesheet" href="styles.css">
+<style>
+.application-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.tab{border:1px solid #ddd;background:#fff;border-radius:8px;padding:11px 15px;cursor:pointer;font-weight:600}.tab.active{background:#c40022;color:#fff;border-color:#c40022}.application-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.application-card{background:#fff;border:1px solid #e4e4e4;border-left:5px solid #c40022;border-radius:10px;padding:20px;box-shadow:0 3px 12px rgba(0,0,0,.05)}.application-card h3{margin:0 0 7px}.application-card p{margin:5px 0;color:#666;font-size:14px}.badge{display:inline-block;background:#fff1f3;color:#a0001b;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:700}.actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}.small-button{border:0;border-radius:7px;padding:9px 12px;cursor:pointer;font-weight:700}.review{background:#111;color:#fff}.approve{background:#dff3e4;color:#216a35}.reject{background:#f8e1e4;color:#8f0019}.empty-box{background:#fff;border:1px dashed #ccc;border-radius:10px;text-align:center;padding:50px 20px;color:#777}.new-application{margin-top:25px;background:#fff;border:1px solid #ddd;border-radius:10px;padding:22px}.new-application a{color:#c40022;font-weight:700;text-decoration:none}
+@media(max-width:750px){.application-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo-placeholder">ATSV</div><div><div class="club-name">ATSV Forchheim e.V.</div><div class="app-name">Mitgliederverwaltung</div></div></div><div class="user-area">Verwaltung</div></header>
+<div class="layout"><aside class="sidebar"><nav><a href="index.html">Dashboard</a><a href="mitglieder.html">Mitglieder</a><a class="active" href="aufnahmeantraege.html">Aufnahmeanträge</a><a href="#">Beiträge</a><a href="#">Dokumente</a><a href="#">Verwaltung</a></nav></aside>
+<main class="content">
+<section class="page-heading"><div><p class="eyebrow">AUFNAHMEANTRÄGE</p><h1>Anträge prüfen</h1><p class="subtitle">Neue Anträge kontrollieren und anschließend freigeben oder ablehnen.</p></div></section>
+<div class="application-tabs"><button class="tab active" data-status="neu">Neu eingegangen <b>0</b></button><button class="tab" data-status="pruefung">In Prüfung <b>0</b></button><button class="tab" data-status="angenommen">Angenommen <b>0</b></button><button class="tab" data-status="abgelehnt">Abgelehnt <b>0</b></button></div>
+<section id="application-list" class="empty-box">Keine Aufnahmeanträge vorhanden.</section>
+<section class="new-application"><strong>Online-Anträge bereitstellen</strong><p>Hier können Interessenten später direkt den passenden Antrag auswählen.</p><a href="online-anmeldung.html">→ Zur Online-Anmeldung</a></section>
+</main></div>
+<script>
+const tabs=document.querySelectorAll('.tab');const list=document.getElementById('application-list');
+tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');list.className='empty-box';list.textContent='Keine Aufnahmeanträge in diesem Status vorhanden.';}));
+</script></body></html>

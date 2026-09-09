@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATSV – Online-Aufnahmeantrag</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .application-page { max-width: 1050px; margin: 0 auto; }
+    .application-intro { margin-bottom: 26px; }
+    .application-intro h1 { margin-bottom: 8px; }
+    .application-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .application-option { background: #fff; border: 1px solid #e7e7e7; border-top: 5px solid #c40022; border-radius: 10px; padding: 28px; box-shadow: 0 3px 12px rgba(0,0,0,.05); }
+    .application-option h2 { margin: 0 0 10px; font-size: 21px; }
+    .application-option p { color: #666; line-height: 1.55; min-height: 72px; }
+    .application-option button { width: 100%; margin-top: 10px; }
+    .notice { margin-top: 22px; padding: 16px 18px; background: #fff; border-left: 4px solid #c40022; border-radius: 7px; color: #555; font-size: 14px; line-height: 1.5; }
+    @media (max-width: 700px) { .application-options { grid-template-columns: 1fr; } .application-option p { min-height: 0; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-placeholder">ATSV</div>
+      <div>
+        <div class="club-name">ATSV Forchheim e.V.</div>
+        <div class="app-name">Online-Aufnahmeantrag</div>
+      </div>
+    </div>
+    <div class="user-area">Mitglied werden</div>
+  </header>
+
+  <main class="content application-page">
+    <section class="application-intro">
+      <p class="eyebrow">ATSV FORCHHEIM E.V.</p>
+      <h1>Online-Mitgliedsantrag</h1>
+      <p class="subtitle">Bitte wählen Sie den für das neue Mitglied passenden Antrag aus.</p>
+    </section>
+
+    <section class="application-options">
+      <article class="application-option">
+        <h2>Normaler Aufnahmeantrag</h2>
+        <p>Für neue Mitglieder, die den regulären Mitgliedsantrag des ATSV Forchheim e.V. ausfüllen.</p>
+        <button class="primary-button" onclick="location.href='antrag-normal.html'">Normalen Antrag starten</button>
+      </article>
+
+      <article class="application-option">
+        <h2>Aufnahmeantrag für ausländische Kinder</h2>
+        <p>Für Kinder mit ausländischer Staatsangehörigkeit. Dieser Antrag enthält die dafür zusätzlich benötigten Angaben.</p>
+        <button class="primary-button" onclick="location.href='antrag-auslaendische-kinder.html'">Antrag starten</button>
+      </article>
+    </section>
+
+    <div class="notice">
+      <strong>Hinweis:</strong> Die Anträge werden später zunächst zur Prüfung an die Vereinsverwaltung übermittelt. Erst nach Freigabe wird daraus ein aktives Mitglied.
+    </div>
+  </main>
+</body>
+</html>

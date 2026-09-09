@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATSV – Neues Mitglied</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-card{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+    .form-card h2{margin:0 0 18px;font-size:19px}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px}
+    .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:#333}
+    .field input,.field select,.field textarea{width:100%;box-sizing:border-box;padding:12px;border:1px solid #d8d8d8;border-radius:8px;font:inherit;background:#fff}
+    .field textarea{min-height:100px;resize:vertical}
+    .full{grid-column:1/-1}
+    .form-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .secondary-link{display:inline-block;padding:12px 16px;border:1px solid #ccc;border-radius:8px;color:#333;text-decoration:none;background:#fff;font-weight:700}
+    .hint{font-size:13px;color:#777;margin-top:6px}
+    .required-note{font-size:13px;color:#777;margin:0 0 20px}
+    @media(max-width:700px){.form-grid{grid-template-columns:1fr}.full{grid-column:auto}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="brand"><div class="logo-placeholder">ATSV</div><div><div class="club-name">ATSV Forchheim e.V.</div><div class="app-name">Mitgliederverwaltung</div></div></div><div class="user-area">Verwaltung</div></header>
+<div class="layout">
+<aside class="sidebar"><nav><a href="index.html">Dashboard</a><a class="active" href="mitglieder.html">Mitglieder</a><a href="aufnahmeantraege.html">Aufnahmeanträge</a><a href="#">Beiträge</a><a href="#">Dokumente</a><a href="#">Verwaltung</a></nav></aside>
+<main class="content">
+  <section class="page-heading"><div><p class="eyebrow">MITGLIEDER</p><h1>Neues Mitglied</h1><p class="subtitle">Mitgliedsdaten erfassen und später in der Mitgliedsakte verwalten.</p></div></section>
+  <p class="required-note">Felder mit * sind für die spätere Datenbank als Pflichtfelder vorgesehen. Dieses Formular speichert aktuell noch keine Daten.</p>
+
+  <form id="memberForm">
+    <section class="form-card"><h2>Stammdaten</h2><div class="form-grid">
+      <div class="field"><label for="vorname">Vorname *</label><input id="vorname" name="vorname" required></div>
+      <div class="field"><label for="nachname">Nachname *</label><input id="nachname" name="nachname" required></div>
+      <div class="field"><label for="geburt">Geburtsdatum *</label><input id="geburt" name="geburt" type="date" required></div>
+      <div class="field"><label for="geburtsort">Geburtsort</label><input id="geburtsort" name="geburtsort"></div>
+      <div class="field"><label for="geschlecht">Geschlecht</label><select id="geschlecht" name="geschlecht"><option value="">Bitte auswählen</option><option>Weiblich</option><option>Männlich</option><option>Divers</option><option>Keine Angabe</option></select></div>
+      <div class="field"><label for="nationalitaet">Staatsangehörigkeit</label><input id="nationalitaet" name="nationalitaet"></div>
+    </div></section>
+
+    <section class="form-card"><h2>Kontakt & Anschrift</h2><div class="form-grid">
+      <div class="field full"><label for="strasse">Straße & Hausnummer *</label><input id="strasse" name="strasse" required></div>
+      <div class="field"><label for="plz">PLZ *</label><input id="plz" name="plz" inputmode="numeric" required></div>
+      <div class="field"><label for="ort">Ort *</label><input id="ort" name="ort" required></div>
+      <div class="field"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel"></div>
+      <div class="field"><label for="email">E-Mail</label><input id="email" name="email" type="email"></div>
+    </div></section>
+
+    <section class="form-card"><h2>Vereinsdaten</h2><div class="form-grid">
+      <div class="field"><label for="abteilung">Abteilung *</label><select id="abteilung" name="abteilung" required><option value="">Bitte auswählen</option><option>Fußball</option><option>Jugend</option><option>Weitere Abteilung</option></select><div class="hint">Die Abteilungen werden später in der Verwaltung gepflegt.</div></div>
+      <div class="field"><label for="eintritt">Eintrittsdatum *</label><input id="eintritt" name="eintritt" type="date" required></div>
+      <div class="field"><label for="status">Mitgliedsstatus</label><select id="status" name="status"><option>Aktiv</option><option>Inaktiv</option><option>Ausstehend</option></select></div>
+      <div class="field"><label for="mitgliedsnummer">Mitgliedsnummer</label><input id="mitgliedsnummer" name="mitgliedsnummer" placeholder="Wird automatisch vergeben" disabled></div>
+    </div></section>
+
+    <section class="form-card"><h2>Erziehungsberechtigte</h2><div class="form-grid">
+      <div class="field"><label for="elternname">Name</label><input id="elternname" name="elternname"></div>
+      <div class="field"><label for="elterntelefon">Telefon</label><input id="elterntelefon" name="elterntelefon" type="tel"></div>
+      <div class="field"><label for="elternemail">E-Mail</label><input id="elternemail" name="elternemail" type="email"></div>
+      <div class="field"><label for="weitereperson">Weitere Kontaktperson</label><input id="weitereperson" name="weitereperson"></div>
+    </div></section>
+
+    <section class="form-card"><h2>Interne Notiz</h2><div class="form-grid"><div class="field full"><label for="notiz">Notiz</label><textarea id="notiz" name="notiz" placeholder="Nur für berechtigte Vereinsverwaltung"></textarea></div></div></section>
+
+    <div class="form-actions"><a class="secondary-link" href="mitglieder.html">← Abbrechen</a><button class="primary-button" type="submit">Mitglied anlegen</button></div>
+  </form>
+</main></div>
+<script>
+document.getElementById('memberForm').addEventListener('submit', function(event){event.preventDefault();alert('Das Formular ist vorbereitet. Die echte Speicherung wird mit der sicheren Datenbank-Anbindung aktiviert.');});
+</script>
+</body></html>

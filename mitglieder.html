@@ -1,29 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATSV – Mitglieder</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .member-toolbar { display:flex; gap:12px; margin:24px 0; flex-wrap:wrap; }
-    .search { flex:1; min-width:240px; padding:13px 14px; border:1px solid #ddd; border-radius:8px; font-size:14px; }
-    .filter { padding:13px 14px; border:1px solid #ddd; border-radius:8px; background:#fff; }
-    .member-table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,.05); }
-    .member-table th,.member-table td { text-align:left; padding:15px; border-bottom:1px solid #eee; font-size:14px; }
-    .member-table th { background:#181818; color:#fff; }
-    .empty { text-align:center; padding:50px 20px; color:#777; }
-    .preview-link { display:inline-block; margin-top:18px; padding:11px 16px; border-radius:8px; background:#b00020; color:#fff; text-decoration:none; font-weight:700; }
-    @media(max-width:700px){ .member-table{font-size:12px}.member-table th:nth-child(3),.member-table td:nth-child(3),.member-table th:nth-child(5),.member-table td:nth-child(5){display:none} }
-  </style>
-</head>
-<body>
-<header class="topbar"><div class="brand"><div class="logo-placeholder">ATSV</div><div><div class="club-name">ATSV Forchheim e.V.</div><div class="app-name">Mitgliederverwaltung</div></div></div><div class="user-area">Verwaltung</div></header>
-<div class="layout">
-<aside class="sidebar"><nav><a href="index.html">Dashboard</a><a class="active" href="mitglieder.html">Mitglieder</a><a href="aufnahmeantraege.html">Aufnahmeanträge</a><a href="#">Beiträge</a><a href="#">Dokumente</a><a href="#">Verwaltung</a></nav></aside>
-<main class="content">
-  <section class="page-heading"><div><p class="eyebrow">MITGLIEDER</p><h1>Mitgliederverwaltung</h1><p class="subtitle">Mitglieder suchen, ansehen und später bearbeiten.</p></div><button class="primary-button" onclick="location.href='neues-mitglied.html'">+ Neues Mitglied</button></section>
-  <div class="member-toolbar"><input class="search" id="search" type="search" placeholder="Nach Name, Mitgliedsnummer oder E-Mail suchen..."><select class="filter" id="status"><option value="alle">Alle Status</option><option value="aktiv">Aktiv</option><option value="inaktiv">Inaktiv</option></select></div>
-  <div style="overflow-x:auto"><table class="member-table"><thead><tr><th>Mitgliedsnummer</th><th>Name</th><th>Geburtsdatum</th><th>Abteilung</th><th>Eintritt</th><th>Status</th></tr></thead><tbody id="members"><tr><td colspan="6" class="empty">Noch keine Mitglieder vorhanden.<br>Neue Mitglieder werden später aus freigegebenen Aufnahmeanträgen übernommen.<br><a class="preview-link" href="mitglied.html">Mitgliedsakte als Vorschau öffnen</a></td></tr></tbody></table></div>
-</main></div>
-</body></html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ATSV – Mitglieder</title><link rel="stylesheet" href="styles.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
+.member-toolbar{display:flex;gap:12px;margin:24px 0;flex-wrap:wrap}.search{flex:1;min-width:240px;padding:13px 14px;border:1px solid #ddd;border-radius:8px;font-size:14px}.filter{padding:13px 14px;border:1px solid #ddd;border-radius:8px;background:#fff}.member-table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.05)}.member-table th,.member-table td{text-align:left;padding:15px;border-bottom:1px solid #eee;font-size:14px}.member-table th{background:#181818;color:#fff}.empty{text-align:center;padding:50px 20px;color:#777}.loading{text-align:center;padding:35px;color:#777}.error{margin:15px 0;padding:12px;border-radius:8px;background:#fff0f0;color:#a00020}.status{display:inline-block;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700}.status.active{background:#e7f7ec;color:#18743a}.status.inactive{background:#eee;color:#666}@media(max-width:700px){.member-table th:nth-child(3),.member-table td:nth-child(3),.member-table th:nth-child(5),.member-table td:nth-child(5){display:none}}
+</style></head>
+<body><header class="topbar"><div class="brand"><div class="logo-placeholder">ATSV</div><div><div class="club-name">ATSV Forchheim e.V.</div><div class="app-name">Mitgliederverwaltung</div></div></div><div class="user-area"><button class="logout-button" onclick="logout()">Abmelden</button></div></header>
+<div class="layout"><aside class="sidebar"><nav><a href="index.html">Dashboard</a><a class="active" href="mitglieder.html">Mitglieder</a><a href="aufnahmeantraege.html">Aufnahmeanträge</a><a href="#">Beiträge</a><a href="#">Dokumente</a><a href="#">Verwaltung</a></nav></aside>
+<main class="content"><section class="page-heading"><div><p class="eyebrow">MITGLIEDER</p><h1>Mitgliederverwaltung</h1><p class="subtitle">Mitglieder suchen, ansehen und später bearbeiten.</p></div><button class="primary-button" onclick="location.href='neues-mitglied.html'">+ Neues Mitglied</button></section>
+<div class="member-toolbar"><input class="search" id="search" type="search" placeholder="Nach Name, Mitgliedsnummer oder E-Mail suchen..."><select class="filter" id="status"><option value="alle">Alle Status</option><option value="aktiv">Aktiv</option><option value="inaktiv">Inaktiv</option></select></div><div id="message"></div>
+<div style="overflow-x:auto"><table class="member-table"><thead><tr><th>Mitgliedsnummer</th><th>Name</th><th>Geburtsdatum</th><th>Abteilung</th><th>Eintritt</th><th>Status</th></tr></thead><tbody id="members"><tr><td colspan="6" class="loading">Mitglieder werden geladen...</td></tr></tbody></table></div></main></div>
+<script src="supabase-config.js"></script><script src="auth.js"></script><script>
+let allMembers=[];function formatDate(v){return v?new Date(v+'T00:00:00').toLocaleDateString('de-DE'):'—'}
+function renderMembers(){const q=document.getElementById('search').value.trim().toLowerCase(),s=document.getElementById('status').value;const rows=allMembers.filter(m=>(!q||[m.member_number,m.first_name,m.last_name,m.email,m.department].join(' ').toLowerCase().includes(q))&&(s==='alle'||m.status===s));const b=document.getElementById('members');if(!rows.length){b.innerHTML='<tr><td colspan="6" class="empty">Keine Mitglieder gefunden.</td></tr>';return}b.innerHTML=rows.map(m=>`<tr><td>${m.member_number}</td><td><strong>${m.first_name} ${m.last_name}</strong><br><small>${m.email||''}</small></td><td>${formatDate(m.birth_date)}</td><td>${m.department}</td><td>${formatDate(m.entry_date)}</td><td><span class="status ${m.status==='aktiv'?'active':'inactive'}">${m.status}</span></td></tr>`).join('')}
+async function loadMembers(){const {data,error}=await supabaseClient.from('members').select('id,member_number,first_name,last_name,birth_date,email,department,entry_date,status').order('last_name').order('first_name');if(error){document.getElementById('members').innerHTML='<tr><td colspan="6" class="empty">Mitglieder konnten nicht geladen werden.</td></tr>';document.getElementById('message').innerHTML=`<div class="error">${error.message}</div>`;return}allMembers=data||[];renderMembers()}
+document.getElementById('search').addEventListener('input',renderMembers);document.getElementById('status').addEventListener('change',renderMembers);requireLogin();loadMembers();
+</script></body></html>

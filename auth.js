@@ -33,7 +33,8 @@ if (loginForm) {
     });
 
     if (error) {
-      setMessage('Anmeldung fehlgeschlagen. Bitte Benutzername und Passwort prüfen.');
+      console.error('Supabase-Anmeldung fehlgeschlagen:', error);
+      setMessage(`Anmeldung fehlgeschlagen: ${error.message}`);
       return;
     }
 
